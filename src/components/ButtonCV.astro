@@ -1,7 +1,6 @@
 ---
 import FileCv from "./icons/FileCv.astro";
 ---
-
 <div
   class="z-20 fixed inset-0 p-8 backdrop-filter flex justify-center items-center
     sr-only"
@@ -24,13 +23,15 @@ import FileCv from "./icons/FileCv.astro";
   const buttonCv = document.getElementById("button-cv");
   const containerCv = document.getElementById("container-cv");
 
-  buttonCv.addEventListener("click", () => {
-    containerCv.classList.remove("sr-only");
-  });
+  if (buttonCv && containerCv) {
+    buttonCv.addEventListener("click", () => {
+      containerCv.classList.remove("sr-only");
+    });
 
-  containerCv.addEventListener("click", (event) => {
-    if ((event.target as HTMLElement).id == "container-cv") {
-      containerCv.classList.add("sr-only");
-    }
-  });
+    containerCv.addEventListener("click", (event) => {
+      if ((event.target as HTMLElement).id == "container-cv") {
+        containerCv.classList.add("sr-only");
+      }
+    });
+  }
 </script>
